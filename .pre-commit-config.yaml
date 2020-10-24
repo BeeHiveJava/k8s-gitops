@@ -17,6 +17,14 @@ repos:
           - commit
         args: [-c=.yamllint.yaml]
 
+  - repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.7.1.1
+    hooks:
+      - id: shellcheck
+        stages:
+          - commit
+        args: [-e, SC1091]
+
   - repo: https://github.com/alessandrojcm/commitlint-pre-commit-hook
     rev: v3.0.0
     hooks:
