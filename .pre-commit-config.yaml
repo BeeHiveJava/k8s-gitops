@@ -1,0 +1,10 @@
+---
+repos:
+  - repo: local
+    hooks:
+      - id: eclint
+        name: eclint
+        language: system
+        entry: eclint check
+        stages:
+          - commit
