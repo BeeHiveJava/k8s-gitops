@@ -1,0 +1,24 @@
+---
+name: yamllint
+
+# yamllint disable-line rule:truthy
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  yamllint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run yamllint
+        uses: karancode/yamllint-github-action@v2.0.0
+        with:
+          yamllint_file_or_dir: .
