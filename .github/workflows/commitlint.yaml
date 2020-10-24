@@ -1,0 +1,26 @@
+---
+name: commitlint
+
+# yamllint disable-line rule:truthy
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  commitlint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Run commitlint
+        uses: wagoid/commitlint-github-action@v1
+        with:
+          configFile: .commitlintrc.yaml
