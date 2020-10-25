@@ -3,6 +3,7 @@ extend: default
 ignore: |
   .git/
   .idea/
+  **/*.generated.yaml
 rules:
   braces:
     level: error
