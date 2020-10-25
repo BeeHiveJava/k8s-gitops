@@ -1,0 +1,21 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: k8s-gitops
+  namespace: gotk-system
+spec:
+  url: https://github.com/BeeHiveJava/k8s-gitops
+  ref:
+    branch: main
+  interval: 1m
+  ignore: |
+    # exclude all
+    /*
+
+    # include namespaces dir
+    !/namespaces/
+
+    # exclude file extensions from namespaces dir
+    /namespaces/**/*.txt
+    /namespaces/**/*.md
