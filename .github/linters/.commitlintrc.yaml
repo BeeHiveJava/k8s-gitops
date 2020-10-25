@@ -3,4 +3,4 @@ extends:
   - "@commitlint/config-conventional"
 
 rules:
-  scope-enum: [2, always, [pre-commit, linters, scripts]]
+  scope-enum: [2, always, [pre-commit, linters, scripts, deployments]]
