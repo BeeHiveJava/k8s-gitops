@@ -8,15 +8,15 @@ repos:
         entry: editorconfig-checker
         stages:
           - commit
-        args: [--config, .ecrc]
+        args: [--config=.github/linters/.ecrc]
 
-  - repo: https://github.com/adrienverge/yamllint.git
+  - repo: https://github.com/adrienverge/yamllint
     rev: v1.25.0
     hooks:
       - id: yamllint
         stages:
           - commit
-        args: [-c=.yamllint.yaml]
+        args: [--config-file=.github/linters/.yamllint.yaml]
 
   - repo: https://github.com/shellcheck-py/shellcheck-py
     rev: v0.7.1.1
@@ -24,7 +24,7 @@ repos:
       - id: shellcheck
         stages:
           - commit
-        args: [-e, SC1091]
+        args: [--color, --external-sources]
 
   - repo: https://github.com/alessandrojcm/commitlint-pre-commit-hook
     rev: v3.0.0
@@ -32,5 +32,6 @@ repos:
       - id: commitlint
         stages:
           - commit-msg
+        args: [--config=.github/linters/.commitlintrc.yaml]
         additional_dependencies:
           - "@commitlint/config-conventional"

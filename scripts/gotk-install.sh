@@ -63,7 +63,7 @@ function parse_params() {
 # ARGS: $@ (optional): Arguments provided to the script
 # OUTS: None
 function main() {
-    # shellcheck source=templates/source.sh
+    # shellcheck source=SCRIPTDIR/templates/source.sh
     source "$(dirname "${BASH_SOURCE[0]}")/templates/source.sh"
 
     trap script_trap_err ERR
