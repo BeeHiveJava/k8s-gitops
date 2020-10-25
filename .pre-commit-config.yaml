@@ -2,12 +2,13 @@
 repos:
   - repo: local
     hooks:
-      - id: eclint
-        name: eclint
+      - id: editorconfig-checker
+        name: editorconfig-checker
         language: system
-        entry: eclint check
+        entry: editorconfig-checker
         stages:
           - commit
+        args: [--config, .ecrc]
 
   - repo: https://github.com/adrienverge/yamllint.git
     rev: v1.25.0
