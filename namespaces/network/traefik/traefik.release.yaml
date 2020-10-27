@@ -1,0 +1,20 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: traefik
+  namespace: network
+spec:
+  chart:
+    spec:
+      chart: traefik
+      version: 9.8.x
+      sourceRef:
+        kind: HelmRepository
+        name: traefik-charts
+        namespace: gotk-system
+  interval: 1h
+  values:
+    logs:
+      general:
+        level: DEBUG

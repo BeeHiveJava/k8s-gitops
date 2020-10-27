@@ -1,0 +1,15 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: traefik-dashboard
+  namespace: network
+spec:
+  entryPoints:
+    - web
+  routes:
+    - kind: Rule
+      match: HostRegexp(`traefik.home.tehmessiah.nl`) && (PathPrefix(`/dashboard`) || PathPrefix(`/api`))
+      services:
+        - kind: TraefikService
+          name: api@internal
