@@ -1,0 +1,23 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: metallb
+  namespace: network
+spec:
+  chart:
+    spec:
+      chart: metallb
+      version: 0.1.x
+      sourceRef:
+        kind: HelmRepository
+        name: bitnami-charts
+        namespace: gotk-system
+  interval: 1h
+  values:
+    configInline:
+      address-pools:
+        - name: default
+          protocol: layer2
+          addresses:
+            - 192.168.162.30-192.168.162.40
