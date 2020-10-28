@@ -1,0 +1,31 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: external-dns
+  namespace: network
+spec:
+  chart:
+    spec:
+      chart: external-dns
+      version: 3.5.x
+      sourceRef:
+        kind: HelmRepository
+        name: bitnami-charts
+        namespace: gotk-system
+  interval: 1h
+  dependsOn:
+    - name: sealed-secrets-controller
+      namespace: kube-system
+  values:
+    logLevel: debug
+    crd:
+      create: true
+    domainFilters:
+      - home.tehmessiah.nl
+    zoneIdFilters:
+      - c34066a25101d8a6be50ddb241104cce
+    provider: cloudflare
+    cloudflare:
+      secretName: external-dns-cloudflare
+      proxied: false
