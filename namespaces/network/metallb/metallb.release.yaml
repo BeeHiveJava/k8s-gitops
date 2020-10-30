@@ -21,3 +21,7 @@ spec:
           protocol: layer2
           addresses:
             - 192.168.162.30-192.168.162.40
+        - name: dns-services
+          protocol: layer2
+          addresses:
+            - 192.168.162.25/32

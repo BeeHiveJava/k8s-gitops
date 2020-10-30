@@ -18,11 +18,13 @@ spec:
     serviceTCP:
       type: LoadBalancer
       annotations:
+        metallb.universe.tf/address-pool: dns-services
         metallb.universe.tf/allow-shared-ip: pihole-svc
 
     serviceUDP:
       type: LoadBalancer
       annotations:
+        metallb.universe.tf/address-pool: dns-services
         metallb.universe.tf/allow-shared-ip: pihole-svc
 
     ingress:
