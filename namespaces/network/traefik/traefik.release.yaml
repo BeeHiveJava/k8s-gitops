@@ -18,6 +18,10 @@ spec:
     logs:
       general:
         level: DEBUG
+    providers:
+      kubernetesIngress:
+        publishedService:
+          enabled: true
     service:
       annotations:
         external-dns.alpha.kubernetes.io/hostname: traefik.home.tehmessiah.nl
