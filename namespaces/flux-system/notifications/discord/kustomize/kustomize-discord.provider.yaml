@@ -1,0 +1,12 @@
+---
+apiVersion: notification.toolkit.fluxcd.io/v1beta1
+kind: Provider
+metadata:
+  name: kustomize-discord
+  namespace: flux-system
+spec:
+  type: discord
+  channel: logs-kustomize
+  username: flux-system
+  secretRef:
+    name: kustomize-discord-webhook-url
