@@ -1,0 +1,12 @@
+---
+apiVersion: notification.toolkit.fluxcd.io/v1beta1
+kind: Provider
+metadata:
+  name: helm-discord
+  namespace: flux-system
+spec:
+  type: discord
+  channel: logs-helm
+  username: flux-system
+  secretRef:
+    name: helm-discord-webhook-url
