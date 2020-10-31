@@ -62,6 +62,10 @@ spec:
 
       TZ: Europe/Amsterdam
 
+    persistentVolumeClaim:
+      enabled: true
+      storageClass: longhorn
+
     serviceTCP:
       type: LoadBalancer
       annotations:
@@ -76,6 +80,13 @@ spec:
 
     ingress:
       enabled: true
+      hosts:
+        - pihole.home.tehmessiah.nl
+      tls:
+        - hosts:
+            - pihole.home.tehmessiah.nl
+          secretName: pihole.home.tehmessiah.nl-tls
+
       annotations:
         kubernetes.io/ingress.class: traefik
         traefik.ingress.kubernetes.io/router.entrypoints: websecure
@@ -83,9 +94,3 @@ spec:
 
         external-dns.alpha.kubernetes.io/hostname: traefik.home.tehmessiah.nl
         cert-manager.io/cluster-issuer: acme-prod
-      hosts:
-        - pihole.home.tehmessiah.nl
-      tls:
-        - hosts:
-            - pihole.home.tehmessiah.nl
-          secretName: pihole-certificate
