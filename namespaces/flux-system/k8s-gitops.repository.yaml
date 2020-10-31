@@ -3,7 +3,7 @@ apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: GitRepository
 metadata:
   name: k8s-gitops
-  namespace: gotk-system
+  namespace: flux-system
 spec:
   url: https://github.com/BeeHiveJava/k8s-gitops
   ref:

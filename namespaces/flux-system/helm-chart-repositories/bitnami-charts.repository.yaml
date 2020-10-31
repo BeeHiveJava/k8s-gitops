@@ -2,8 +2,8 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: HelmRepository
 metadata:
-  name: pihole-charts
-  namespace: gotk-system
+  name: bitnami-charts
+  namespace: flux-system
 spec:
   interval: 24h
-  url: https://mojo2600.github.io/pihole-kubernetes
+  url: https://charts.bitnami.com/bitnami

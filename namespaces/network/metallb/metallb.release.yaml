@@ -12,7 +12,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: bitnami-charts
-        namespace: gotk-system
+        namespace: flux-system
   interval: 1h
   values:
     configInline:

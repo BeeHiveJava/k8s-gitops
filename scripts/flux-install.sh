@@ -19,7 +19,7 @@ set -o pipefail # Use last non-zero exit code in a pipeline
 function script_usage() {
     cat <<EOF
 Usage:
-    -gv|--gotk-version          The GitOps Toolkit version to install
+    -gv|--flux-version          The GitOps Toolkit version to install
      -h|--help                  Displays this help
      -v|--verbose               Displays verbose output
     -nc|--no-colour             Disables colour output
@@ -36,8 +36,8 @@ function parse_params() {
         param="$1"
         shift
         case $param in
-        -gv=* | --gotk-version=*)
-            gotk_version="${param#*=}"
+        -fv=* | --flux-version=*)
+            flux_version="${param#*=}"
             ;;
         -h | --help)
             script_usage
@@ -75,41 +75,41 @@ function main() {
     colour_init
     #lock_init system
 
-    gotk_install
+    flux_install
 }
 
-function gotk_install() {
-    gotk_check_install
-    gotk_prepare_install
+function flux_install() {
+    flux_check_install
+    flux_prepare_install
 
-    gotk install \
-        --version="$gotk_version" \
-        --namespace="$gotk_namespace" \
-        --components="$gotk_components" \
-        --network-policy="$gotk_network_policy" \
-        --export >"$gotk_export_path"
+    flux install \
+        --version="$flux_version" \
+        --namespace="$flux_namespace" \
+        --components="$flux_components" \
+        --network-policy="$flux_network_policy" \
+        --export >"$flux_export_path"
 }
 
-function gotk_check_install() {
+function flux_check_install() {
     check_binary "git" 1
     check_binary "kubectl" 1
-    check_binary "gotk" 1
+    check_binary "flux" 1
 
-    if ! gotk check --pre; then
-        script_exit "gotk check failed: $0" 1
+    if ! flux check --pre; then
+        script_exit "flux check failed: $0" 1
     fi
 }
 
-function gotk_prepare_install() {
-    readonly gotk_version=${gotk_version-latest}
-    readonly gotk_namespace=gotk-system
-    readonly gotk_network_policy=false
-    readonly gotk_components=source-controller,kustomize-controller,helm-controller,notification-controller
+function flux_prepare_install() {
+    readonly flux_version=${flux_version-latest}
+    readonly flux_namespace=flux-system
+    readonly flux_network_policy=false
+    readonly flux_components=source-controller,kustomize-controller,helm-controller,notification-controller
 
     local git_repository_root
     git_repository_root=$(git rev-parse --show-toplevel)
 
-    readonly gotk_export_path="$git_repository_root/namespaces/gotk-system/toolkit-components.generated.yaml"
+    readonly flux_export_path="$git_repository_root/namespaces/flux-system/toolkit-components.generated.yaml"
 }
 
 # Make it rain
