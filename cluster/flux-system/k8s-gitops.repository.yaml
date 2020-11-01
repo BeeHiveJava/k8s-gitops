@@ -13,9 +13,9 @@ spec:
     # exclude all
     /*
 
-    # include namespaces dir
-    !/namespaces/
+    # include cluster dir
+    !/cluster/
 
-    # exclude file extensions from namespaces dir
-    /namespaces/**/*.txt
-    /namespaces/**/*.md
+    # exclude file extensions from cluster dir
+    /cluster/**/*.txt
+    /cluster/**/*.md

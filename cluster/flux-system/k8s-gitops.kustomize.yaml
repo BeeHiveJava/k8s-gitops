@@ -5,7 +5,7 @@ metadata:
   name: k8s-gitops
   namespace: flux-system
 spec:
-  path: ./namespaces
+  path: ./cluster
   prune: true
   sourceRef:
     kind: GitRepository

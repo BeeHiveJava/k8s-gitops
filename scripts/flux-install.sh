@@ -109,7 +109,7 @@ function flux_prepare_install() {
     local git_repository_root
     git_repository_root=$(git rev-parse --show-toplevel)
 
-    readonly flux_export_path="$git_repository_root/namespaces/flux-system/toolkit-components.generated.yaml"
+    readonly flux_export_path="$git_repository_root/cluster/flux-system/toolkit-components.generated.yaml"
 }
 
 # Make it rain
