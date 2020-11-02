@@ -45,6 +45,19 @@ spec:
           cert-manager.io/cluster-issuer: acme-prod
 
     grafana:
+      dashboardProviders:
+        dashboardproviders.yaml:
+          apiVersion: 1
+          providers:
+            - name: default
+              type: file
+              folder: ""
+              orgId: 1
+              disableDeletion: false
+              editable: true
+              options:
+                path: /var/lib/grafana/dashboards/default
+
       dashboards:
         default:
           cert-manager:
