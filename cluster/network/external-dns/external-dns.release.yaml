@@ -29,3 +29,8 @@ spec:
     cloudflare:
       secretName: external-dns-cloudflare
       proxied: false
+    metrics:
+      enabled: true
+      serviceMonitor:
+        enabled: true
+        namespace: observability
