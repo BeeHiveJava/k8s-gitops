@@ -94,3 +94,9 @@ spec:
 
         external-dns.alpha.kubernetes.io/hostname: traefik.home.tehmessiah.nl
         cert-manager.io/cluster-issuer: acme-prod
+
+    monitoring:
+      podMonitor:
+        enabled: true
+      sidecar:
+        enabled: true
