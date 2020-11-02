@@ -45,6 +45,11 @@ spec:
           cert-manager.io/cluster-issuer: acme-prod
 
     grafana:
+      dashboards:
+        default:
+          cert-manager:
+            url: https://gitlab.com/uneeq-oss/cert-manager-mixin/-/raw/master/dashboards/cert-manager.json
+
       ingress:
         enabled: true
         hosts:

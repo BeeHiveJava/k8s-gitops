@@ -17,8 +17,14 @@ spec:
   dependsOn:
     - name: sealed-secrets-controller
       namespace: kube-system
+    - name: kube-prometheus-stack
+      namespace: observability
   values:
     installCRDs: true
+    prometheus:
+      enabled: true
+      servicemonitor:
+        enabled: true
     extraArgs:
       - --enable-certificate-owner-ref=true
       - --dns01-recursive-nameservers=1.1.1.1:53
