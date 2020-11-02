@@ -71,6 +71,9 @@ spec:
           pihole:
             url: https://grafana.com/api/dashboards/10176/revisions/2/download
 
+      plugins:
+        - grafana-piechart-panel
+
       ingress:
         enabled: true
         hosts:
