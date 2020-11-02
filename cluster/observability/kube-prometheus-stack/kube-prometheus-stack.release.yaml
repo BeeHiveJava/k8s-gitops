@@ -27,6 +27,10 @@ spec:
                 requests:
                   storage: 10Gi
 
+        ruleSelectorNilUsesHelmValues: false
+        serviceMonitorSelectorNilUsesHelmValues: false
+        podMonitorSelectorNilUsesHelmValues: false
+
       ingress:
         enabled: true
         hosts:
