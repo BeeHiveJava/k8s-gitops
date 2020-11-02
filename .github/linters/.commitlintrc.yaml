@@ -13,5 +13,6 @@ rules:
     flux-system,
     kube-system,
     longhorn-system,
-    network
+    network,
+    observability
   ]]
