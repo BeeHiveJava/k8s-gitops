@@ -70,6 +70,10 @@ spec:
             url: https://raw.githubusercontent.com/bitnami-labs/sealed-secrets/master/contrib/prometheus-mixin/dashboards/sealed-secrets-controller.json
           pihole:
             url: https://grafana.com/api/dashboards/10176/revisions/2/download
+          toolkit-cluster:
+            url: https://raw.githubusercontent.com/fluxcd/toolkit/main/manifests/monitoring/grafana/dashboards/cluster.json
+          toolkit-control-plane:
+            url: https://raw.githubusercontent.com/fluxcd/toolkit/main/manifests/monitoring/grafana/dashboards/control-plane.json
 
       plugins:
         - grafana-piechart-panel
