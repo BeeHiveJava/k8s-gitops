@@ -8,5 +8,8 @@ spec:
   selector:
     matchLabels:
       app: helm-controller
+  namespaceSelector:
+    matchNames:
+      - flux-system
   podMetricsEndpoints:
     - port: http-prom

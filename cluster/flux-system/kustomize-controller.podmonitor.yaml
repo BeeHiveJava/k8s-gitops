@@ -8,5 +8,8 @@ spec:
   selector:
     matchLabels:
       app: kustomize-controller
+  namespaceSelector:
+    matchNames:
+      - flux-system
   podMetricsEndpoints:
     - port: http-prom
