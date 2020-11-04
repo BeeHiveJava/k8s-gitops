@@ -14,6 +14,9 @@ spec:
         name: longhorn-charts
         namespace: flux-system
   interval: 1h
+  dependsOn:
+    - name: sealed-secrets-controller
+      namespace: kube-system
   values:
     persistence:
       defaultClassReplicaCount: 2
@@ -26,6 +29,8 @@ spec:
 
     defaultSettings:
       defaultReplicaCount: 2
+      backupTarget: s3://tehmessiah-longhorn@eu-central-1
+      backupTargetCredentialSecret: longhorn-backup-credentials
 
     ingress:
       enabled: true
