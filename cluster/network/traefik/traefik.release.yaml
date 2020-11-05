@@ -35,6 +35,10 @@ spec:
       annotations:
         external-dns.alpha.kubernetes.io/hostname: traefik.home.tehmessiah.nl
 
+    globalArguments:
+      - --global.checknewversion=false
+      - --global.sendanonymoususage=false
+
     additionalArguments:
       - --entryPoints.metrics.address=:8082
       - --metrics.prometheus.entryPoint=metrics
