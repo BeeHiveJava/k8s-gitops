@@ -66,14 +66,19 @@ spec:
         default:
           cert-manager:
             url: https://gitlab.com/uneeq-oss/cert-manager-mixin/-/raw/master/dashboards/cert-manager.json
+            datasource: Prometheus
           sealed-secrets:
             url: https://raw.githubusercontent.com/bitnami-labs/sealed-secrets/master/contrib/prometheus-mixin/dashboards/sealed-secrets-controller.json
+            datasource: Prometheus
           pihole:
             url: https://grafana.com/api/dashboards/10176/revisions/2/download
+            datasource: Prometheus
           toolkit-cluster:
             url: https://raw.githubusercontent.com/fluxcd/toolkit/main/manifests/monitoring/grafana/dashboards/cluster.json
+            datasource: Prometheus
           toolkit-control-plane:
             url: https://raw.githubusercontent.com/fluxcd/toolkit/main/manifests/monitoring/grafana/dashboards/control-plane.json
+            datasource: Prometheus
 
       plugins:
         - grafana-piechart-panel
