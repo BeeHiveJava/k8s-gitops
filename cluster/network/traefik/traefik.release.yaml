@@ -18,13 +18,23 @@ spec:
     logs:
       general:
         level: DEBUG
+
     ports:
       web:
         redirectTo: websecure
+      metrics:
+        port: 8082
+        protocol: TCP
+
     providers:
       kubernetesIngress:
         publishedService:
           enabled: true
+
     service:
       annotations:
         external-dns.alpha.kubernetes.io/hostname: traefik.home.tehmessiah.nl
+
+    additionalArguments:
+      - --entryPoints.metrics.address=:8082
+      - --metrics.prometheus.entryPoint=metrics

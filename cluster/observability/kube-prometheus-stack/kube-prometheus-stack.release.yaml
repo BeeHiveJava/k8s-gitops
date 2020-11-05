@@ -79,6 +79,9 @@ spec:
           toolkit-control-plane:
             url: https://raw.githubusercontent.com/fluxcd/toolkit/main/manifests/monitoring/grafana/dashboards/control-plane.json
             datasource: Prometheus
+          traefik:
+            url: https://grafana.com/api/dashboards/12250/revisions/1/download
+            datasource: Prometheus
 
       plugins:
         - grafana-piechart-panel
