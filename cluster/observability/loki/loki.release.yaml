@@ -20,6 +20,11 @@ spec:
   values:
     loki:
       enabled: true
+
+      persistence:
+        enabled: true
+        storageClassName: longhorn
+
       serviceMonitor:
         enabled: true
 
