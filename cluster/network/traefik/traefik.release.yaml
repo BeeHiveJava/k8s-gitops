@@ -15,10 +15,6 @@ spec:
         namespace: flux-system
   interval: 1h
   values:
-    logs:
-      general:
-        level: DEBUG
-
     ports:
       web:
         redirectTo: websecure

@@ -18,7 +18,6 @@ spec:
     - name: sealed-secrets-controller
       namespace: kube-system
   values:
-    logLevel: debug
     crd:
       create: true
     domainFilters:
