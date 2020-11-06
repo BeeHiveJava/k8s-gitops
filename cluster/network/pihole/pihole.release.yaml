@@ -65,6 +65,7 @@ spec:
     persistentVolumeClaim:
       enabled: true
       storageClass: longhorn
+      size: 1Gi
 
     serviceTCP:
       type: LoadBalancer
