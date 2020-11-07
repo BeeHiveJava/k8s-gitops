@@ -29,6 +29,8 @@ spec:
 
     defaultSettings:
       defaultReplicaCount: 2
+      defaultLonghornStaticStorageClass: longhorn
+
       backupTarget: s3://tehmessiah-longhorn@eu-central-1
       backupTargetCredentialSecret: longhorn-backup-credentials
 
