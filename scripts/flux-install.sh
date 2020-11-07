@@ -75,12 +75,12 @@ function main() {
     colour_init
     #lock_init system
 
-    flux_install
+    install
 }
 
-function flux_install() {
-    flux_check_install
-    flux_prepare_install
+function install() {
+    check_install
+    prepare_install
 
     flux install \
         --version="$flux_version" \
@@ -90,7 +90,7 @@ function flux_install() {
         --export >"$flux_export_path"
 }
 
-function flux_check_install() {
+function check_install() {
     check_binary "git" 1
     check_binary "kubectl" 1
     check_binary "flux" 1
@@ -100,7 +100,7 @@ function flux_check_install() {
     fi
 }
 
-function flux_prepare_install() {
+function prepare_install() {
     readonly flux_version=${flux_version-latest}
     readonly flux_namespace=flux-system
     readonly flux_network_policy=false

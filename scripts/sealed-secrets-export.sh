@@ -71,12 +71,13 @@ function main() {
     colour_init
     #lock_init system
 
-    sealed_secrets_check_export
-    sealed_secrets_prepare_export
-    sealed_secrets_export
+    export
 }
 
-function sealed_secrets_export() {
+function export() {
+    check_export
+    prepare_export
+
     kubectl get secret \
         --namespace "$sealed_secrets_namespace" \
         --output "$sealed_secrets_format" \
@@ -84,12 +85,12 @@ function sealed_secrets_export() {
         >"$sealed_secrets_export_path"
 }
 
-function sealed_secrets_check_export() {
+function check_export() {
     check_binary "kubectl" 1
     check_binary "kubeseal" 1
 }
 
-function sealed_secrets_prepare_export() {
+function prepare_export() {
     readonly sealed_secrets_namespace=kube-system
     readonly sealed_secrets_label=sealedsecrets.bitnami.com/sealed-secrets-key
 
